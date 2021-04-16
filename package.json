@@ -2,13 +2,15 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "nodedb.js",
+  "main": "pizza.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "heroku": "^7.52.0",
     "jsonwebtoken": "^8.5.1",
     "mongo": "^0.1.0",
     "mongodb": "^3.6.6",
@@ -18,7 +20,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node ."
+    "start": "node ."
   },
   "author": "",
   "license": "ISC"
