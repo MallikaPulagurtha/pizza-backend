@@ -4,9 +4,11 @@ const { nanoid } = require("nanoid");
 const bcrypt = require("bcryptjs");
 
 const mongodb = require("mongodb");
-const URL = "mongodb+srv://mallika:hemasundari@cluster0.bl042.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const URL = process.env.DB;
 
 const jwt = require("jsonwebtoken");
+
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -57,7 +59,7 @@ app.post("/login", async (req, res) => {
             let isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
             if (isPasswordCorrect) {
                 //Generate Token
-                let token = jwt.sign({ _id: user._id }, "secretinfo")
+                let token = jwt.sign({ _id: user._id }, "process.env.SECRET")
                 //Pass token
                 res.json({
                     message: "Allow",
@@ -90,7 +92,7 @@ app.post("/login", async (req, res) => {
 //         //Token is present
 //         //Check if the token is valid or expired
 //         try {
-//             let jwtValid = jwt.verify(req.headers.authorization, "secretinfo");
+//             let jwtValid = jwt.verify(req.headers.authorization, "process.env.SECRET");
 //             if (jwtValid) {
 //                 req.userId = jwtValid._id;
 //                 next();
