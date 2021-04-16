@@ -4,7 +4,7 @@ const { nanoid } = require("nanoid");
 const bcrypt = require("bcryptjs");
 
 const mongodb = require("mongodb");
-const URL = "mongodb://localhost:27017";
+const URL = "mongodb+srv://mallika:hemasundari@cluster0.bl042.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const jwt = require("jsonwebtoken");
 
