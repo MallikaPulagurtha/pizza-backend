@@ -133,6 +133,8 @@ app.post("/register", async (req, res) => {
     try {
         let connection = await mongodb.connect(URL);
         let db = connection.db("delivery");
+        req.body.order = [];
+        req.body.pizzas = [];
         let isEmailUnique = await db.collection("register").findOne({ email: req.body.email });
         if (isEmailUnique) {
             res.status(401).json({
